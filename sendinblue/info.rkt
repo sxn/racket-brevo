@@ -1,9 +1,11 @@
 #lang info
 
-(define version "0.1")
+(define license 'BSD-3-Clause)
+
+(define version "1.0")
 (define collection "sendinblue")
 (define scribblings '(("sendinblue.scrbl")))
 
-(define deps '("base"))
+(define deps '("base" "brevo"))
 (define build-deps '("racket-doc"
                      "scribble-lib"))

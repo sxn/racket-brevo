@@ -44,7 +44,7 @@
 (define server-stopper #f)
 
 (sendinblue-host "127.0.0.1")
-(sendinblue-port 9922)
+(sendinblue-port 9923)
 (sendinblue-ssl? #f)
 
 (define (start-server)

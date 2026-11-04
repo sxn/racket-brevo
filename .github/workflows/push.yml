@@ -3,19 +3,19 @@ name: CI
 jobs:
   cicd:
     name: Build & test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-      - uses: Bogdanp/setup-racket@v0.12
+      - uses: actions/checkout@v7
+      - uses: Bogdanp/setup-racket@v1.16
         with:
           architecture: x64
           distribution: full
           variant: CS
-          version: 7.8
+          version: stable
 
       - name: Install
-        run: raco pkg install --auto --batch sendinblue/ sendinblue-test/
+        run: raco pkg install --auto --batch brevo/ brevo-test/ sendinblue/ sendinblue-test/
 
       - name: Test
-        run: raco test -j 4 sendinblue-test/
+        run: raco test -j 4 brevo-test/ sendinblue-test/

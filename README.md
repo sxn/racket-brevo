@@ -4,12 +4,18 @@
     </a>
 </p>
 
-# racket-sendinblue
+# racket-brevo
 
-A Racket client for the [Sendinblue](https://www.sendinblue.com) transactional email API.
+A Racket client for the [Brevo][brevo] transactional email API.
+
+Brevo was formerly called Sendinblue. The `sendinblue` package is now a thin,
+deprecated wrapper around `brevo` that keeps the old names working. New code
+should use `brevo`:
+
+    raco pkg install brevo
 
 ## License
 
-    racket-sendinblue is licensed under the 3-Clause BSD license.
+    racket-brevo is licensed under the 3-Clause BSD license.
 
-[sendinblue]: https://www.sendinblue.com
+[brevo]: https://www.brevo.com/
