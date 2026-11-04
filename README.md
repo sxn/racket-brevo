@@ -1,6 +1,6 @@
 <p>
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/sxn/racket-sendinblue/actions?query=workflow%3ACI">
-        <img src="https://github.com/sxn/racket-sendinblue/workflows/CI/badge.svg" alt="CI" style="max-width:100%;">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/sxn/racket-brevo/actions?query=workflow%3ACI">
+        <img src="https://github.com/sxn/racket-brevo/workflows/CI/badge.svg" alt="CI" style="max-width:100%;">
     </a>
 </p>
 
