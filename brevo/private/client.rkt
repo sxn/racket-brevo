@@ -3,32 +3,32 @@
 (require json
          net/http-client)
 
-(provide (struct-out sendinblue)
+(provide (struct-out brevo)
          send-post-request
-         sendinblue-host
-         sendinblue-port
-         sendinblue-ssl?) 
+         brevo-host
+         brevo-port
+         brevo-ssl?) 
 
-(define-logger sendinblue)
+(define-logger brevo)
 
 (define USER-AGENT
-  (format "sendinblue Client for Racket ~a" (version)))
+  (format "brevo Client for Racket ~a" (version)))
 
-(define sendinblue-host
-  (make-parameter "api.sendinblue.com"))
+(define brevo-host
+  (make-parameter "api.brevo.com"))
 
-(define sendinblue-port
+(define brevo-port
   (make-parameter 443))
 
-(define sendinblue-ssl?
+(define brevo-ssl?
   (make-parameter #t))
 
-(struct sendinblue (api-key))
+(struct brevo (api-key))
 
 (define (call-with-connection fun)
-  (fun (http-conn-open (sendinblue-host)
-                       #:port (sendinblue-port)
-                       #:ssl? (sendinblue-ssl?)))) 
+  (fun (http-conn-open (brevo-host)
+                       #:port (brevo-port)
+                       #:ssl? (brevo-ssl?)))) 
 
 (define (send-post-request client #:uri uri #:json json)
   (define data (jsexpr->string json))
@@ -36,10 +36,10 @@
     (list "Accept: application/json"
           "Content-Type: application/json; charset=utf-8"
           (format "User-Agent: ~a" USER-AGENT)
-          (format "api-key: ~a" (sendinblue-api-key client))))
+          (format "api-key: ~a" (brevo-api-key client))))
 
-  (log-sendinblue-info "POST ~a" uri)
-  (log-sendinblue-info "Data: ~a" data)
+  (log-brevo-info "POST ~a" uri)
+  (log-brevo-info "Data: ~a" data)
 
   (call-with-connection
    (lambda (conn)

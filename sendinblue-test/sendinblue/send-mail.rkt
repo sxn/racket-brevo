@@ -7,7 +7,7 @@
 
 (define sendblue-tests
   (test-suite
-   "sendinblue-send-email"
+   "sendinblue-send-email (compatibility wrapper)"
    #:before start-server
    #:after stop-server
    (test-case "neither `text-content` nor `html-content` being passed raises a user exception"

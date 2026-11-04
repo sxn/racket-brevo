@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-raco scribble --dest doc/ sendinblue/sendinblue.scrbl
+raco scribble --dest doc/ brevo/brevo.scrbl
