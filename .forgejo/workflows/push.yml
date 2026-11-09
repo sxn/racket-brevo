@@ -1,0 +1,21 @@
+on: push
+name: CI
+jobs:
+  cicd:
+    name: Build & test
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: https://github.com/Bogdanp/setup-racket@v1.16
+        with:
+          architecture: x64
+          distribution: full
+          variant: CS
+          version: stable
+
+      - name: Install
+        run: raco pkg install --auto --batch brevo/ brevo-test/ sendinblue/ sendinblue-test/
+
+      - name: Test
+        run: raco test -j 4 brevo-test/ sendinblue-test/
